@@ -19,6 +19,7 @@ O objetivo é:
 
 ## 🗂️ Estrutura do Projeto
 
+```
 webscraper_project/
 ├── config/
 │   └── settings.py     → URLs, delays, user-agents
@@ -49,6 +50,7 @@ webscraper_project/
 │
 ├── requirements.txt
 └── .gitignore
+```
 
 ---
 

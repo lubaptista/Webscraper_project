@@ -6,7 +6,11 @@
 
 O scraper coleta dados de tabelas do site:
 
+master:
 [https://webscraper.io/test-sites/tables](https://webscraper.io/test-sites/tables)
+
+nova-feature-scrapper:
+[https://webscraper.io/test-sites/e-commerce/allinone](https://webscraper.io/test-sites/e-commerce/allinone)
 
 O objetivo é:
 - entender scraping de listas e tabelas

@@ -1,25 +1,36 @@
 from config.settings import SETTINGS
+from bs4 import BeautifulSoup
 
-def extract_table_data(soup):
+def extract_product_data(html):
     """
-    Extrai dados das tabelas do HTML.
-    Retorna lista de linhas, onde cada linha é dict.
+    Extrai dados dos produtos na página HTML.
     """
-    all_tables_data = []
-    tables = soup.select(SETTINGS["CSS_SELECTORS"]["TABLE"])
-    
-    for idx, table in enumerate(tables, start=1):
-        table_data = []
-        rows = table.select(SETTINGS["CSS_SELECTORS"]["ROWS"])
+    soup = BeautifulSoup(html, "lxml")
+    products = []
 
-        for row in rows:
-            columns = row.select(SETTINGS["CSS_SELECTORS"]["COLUMNS"])
-            values = [col.text.strip() for col in columns]
-            table_data.append(values)
-
-        all_tables_data.append({
-            "table_index": idx,
-            "rows": table_data
-        })
+    product_boxes = soup.select(".thumbnail")
     
-    return all_tables_data
+    for box in product_boxes:
+        title_tag = box.select_one("a.title")
+        title = title_tag.text.strip() if title_tag else "N/A"
+        url = (
+            "https://webscraper.io" + title_tag["href"]
+            if title_tag and title_tag.has_attr("href")
+            else "N/A"
+        )
+
+        price_tag = box.select_one("h4.price")
+        price = price_tag.text.strip() if price_tag else "N/A"
+
+        desc_tag = box.select_one("p.description")
+        description = desc_tag.text.strip() if desc_tag else "N/A"
+
+        product = {
+            "title": title,
+            "url": url,
+            "price": price,
+            "description": description,
+        }
+        products.append(product)
+
+    return products

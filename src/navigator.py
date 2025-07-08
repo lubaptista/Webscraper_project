@@ -1,6 +1,17 @@
-def get_next_page_url(soup, base_url):
+from bs4 import BeautifulSoup
+
+def get_pagination_urls(html, base_url):
     """
-    Para este site, não há paginação.
-    Retornamos None.
+    Busca todas as páginas para navegar.
     """
-    return None
+    soup = BeautifulSoup(html, "lxml")
+    pages = set()
+
+    page_links = soup.select("ul.pagination li a")
+    for link in page_links:
+        href = link.get("href")
+        if href:
+            full_url = base_url.rstrip("/") + href
+            pages.add(full_url)
+
+    return list(pages)

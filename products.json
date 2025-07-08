@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Galaxy Note 10...",
+    "url": "https://webscraper.io/test-sites/e-commerce/allinone/product/24",
+    "price": "$587.99",
+    "description": "10.1\", 32GB, Black"
+  },
+  {
+    "title": "MSI GS63 7RD S...",
+    "url": "https://webscraper.io/test-sites/e-commerce/allinone/product/118",
+    "price": "$1179",
+    "description": "MSI GS63 7RD Stealth, 15.6\" FHD IPS, Core i7-7700HQ, 8GB, 256GB SSD, GeForce GTX 1050 2GB, DOS + Windows 10 Home"
+  },
+  {
+    "title": "Asus ROG Strix...",
+    "url": "https://webscraper.io/test-sites/e-commerce/allinone/product/147",
+    "price": "$1399",
+    "description": "Asus ROG Strix GL702VM-GC146T, 17.3\" FHD, Core i7-7700HQ, 8GB, 1TB + 128GB SSD, GeForce GTX 1060 3GB, Windows 10 Home, Eng kbd"
+  }
+]
